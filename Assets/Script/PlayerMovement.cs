@@ -22,18 +22,20 @@ public class PlayerMovement : MonoBehaviour
 	[Range(0,1)] 
 	public float JumpCutMultiplier; // Corte del salto al mantener presionado
 
+	[SerializeField] private float FallGravityMultiplier;
 	private Vector2 MoveInput; // Vector de eje X y eje Y
 
 	private bool isJumping; // Si se encuentra saltando
 	private bool JumpInputRealeased; // Si el salto se encuentra liberado 
 	private float lastGroundedTime; // tiempo desde la ultima vez en el suelo
 	private float lastJumpTime; // tiempo desde el ultimo salto
-	
+	private float gravityScale;
 
 	private void Start(){
 
 		rb = GetComponent<Rigidbody2D>();
 		coll = GetComponent<DetecColision>();
+		gravityScale = rb.gravityScale;
 
 	}
 
@@ -97,6 +99,17 @@ public class PlayerMovement : MonoBehaviour
 			float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, VelPower) * Mathf.Sign(speedDif); //aplica aceleracion a la diferencia de velocidad, la eleva a una potencia establecida para que la aceleracion aumente con velocidades mas altas, finalmente se multiplica por signo para volver a aplicar la direccion
 			rb.AddForce(movement * Vector2.right); // aplica fuerza fuerza a rigidbody, multiplicando por Vector2.right para que solo afecte el eje X
 
+		#endregion
+
+		#region Jump Gravity
+			if (rb.velocity.y < 0 && lastGroundedTime <= 0){
+
+				rb.gravityScale = gravityScale * FallGravityMultiplier;
+			
+			}else{
+				
+				rb.gravityScale = gravityScale;
+			}
 		#endregion
 
 	}

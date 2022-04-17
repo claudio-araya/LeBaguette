@@ -185,9 +185,9 @@ MonoBehaviour:
   Decceleration: 6
   VelPower: 1
   JumpForce: 8
-  JumpCoyoteTime: 0.15
+  JumpCoyoteTime: 0.01
   JumpBufferTime: 0.1
-  JumpCutMultiplier: 1
+  JumpCutMultiplier: 0.4
 --- !u!50 &589250122
 Rigidbody2D:
   serializedVersion: 4
@@ -206,8 +206,8 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 0b1610b658dbb5349a38b3d37e3b55dd, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &589250123
 CapsuleCollider2D:
