@@ -25,14 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
 	[Header(" WALL - PARED")]
 
-	[SerializeField] private float ClimbTheWall; 
-	[SerializeField] private float LowerTheWall; 
+	[SerializeField] private bool SlideWall; // Deja deslizarse
+	[SerializeField] private float ClimbTheWall; // Fuerza con la que sube el personaje 
+	[SerializeField] private float LowerTheWall; // Fuerza con la que baja el personaje
+
 	private Vector2 MoveInput; // Vector de eje X y eje Y
 
 	[Header("VERIFICANDO")]
-	public bool CanMove = true;
+	public bool CanMove = true; // Puede moverse 
 	public bool isJumping; // Si se encuentra saltando
 	public bool JumpInputRealeased; // Si el salto se encuentra liberado 
+	public bool climbing;
 
 	// Variables De Tiempo
 	private float lastGroundedTime; // tiempo desde la ultima vez en el suelo
@@ -58,10 +61,12 @@ public class PlayerMovement : MonoBehaviour
 
 			if(Input.GetKey(KeyCode.C)){ // Sigue Ocurriendo Mientras se mantenga presionada la tecla 
 				lastJumpTime = JumpBufferTime;
+				
 			}
 
 			if(Input.GetKeyUp(KeyCode.C)){ // Ocurre una 1 vez, cuando suelta la tecla devuelve true 
 				OnJumpUp();
+			
 			}
 
 		#endregion
@@ -82,7 +87,8 @@ public class PlayerMovement : MonoBehaviour
 
 			// Condiciones de agarre
 			if(coll.onWall && Input.GetKey(KeyCode.X)){
-
+				
+				climbing = true;
 				rb.gravityScale = 0;
 				rb.velocity = new Vector2(rb.velocity.x, 0);
 
@@ -91,8 +97,9 @@ public class PlayerMovement : MonoBehaviour
 				rb.velocity = new Vector2(rb.velocity.x, y * (MaxMoveSpeed * speedModifier));
 
 			}else{
-
+				climbing = false;
 				rb.gravityScale = gravityScale;
+				
 
 			}
 
@@ -130,11 +137,12 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 
 		#region Jump Gravity
-			if (rb.velocity.y < 0 && lastGroundedTime <= 0){
+			if (rb.velocity.y < 0 && lastGroundedTime <= 0 && !climbing){
 
 				rb.gravityScale = gravityScale * FallGravityMultiplier;
+				
 			
-			}else{
+			}else if(SlideWall){
 				
 				rb.gravityScale = gravityScale;
 			}

@@ -188,8 +188,8 @@ MonoBehaviour:
   JumpCoyoteTime: 0.15
   JumpCutMultiplier: 0.4
   FallGravityMultiplier: 2
-  ClimbTheWall: 3
-  LowerTheWall: 3
+  ClimbTheWall: 1
+  LowerTheWall: 1
   CanMove: 1
   isJumping: 0
   JumpInputRealeased: 0
