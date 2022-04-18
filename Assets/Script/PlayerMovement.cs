@@ -14,21 +14,30 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float Decceleration; // Desaceleracion
 	[SerializeField] private float VelPower; // Poder de Velocidad 
 	
-	[Header("JUMP - Salto")]
+	[Header("JUMP - SALTO")]
 	[SerializeField] private float JumpForce; // Fuerza del salto
 	[SerializeField] private float JumpCoyoteTime; // Valor del Coyote 
-	[SerializeField] private float JumpBufferTime; // Tiempo en el que podemos volver a presionar el salto 
 
 	[Range(0,1)] 
 	public float JumpCutMultiplier; // Corte del salto al mantener presionado
 
 	[SerializeField] private float FallGravityMultiplier;
+
+	[Header(" WALL - PARED")]
+
+	[SerializeField] private float ClimbTheWall; 
+	[SerializeField] private float LowerTheWall; 
 	private Vector2 MoveInput; // Vector de eje X y eje Y
 
-	private bool isJumping; // Si se encuentra saltando
-	private bool JumpInputRealeased; // Si el salto se encuentra liberado 
+	[Header("VERIFICANDO")]
+	public bool CanMove = true;
+	public bool isJumping; // Si se encuentra saltando
+	public bool JumpInputRealeased; // Si el salto se encuentra liberado 
+
+	// Variables De Tiempo
 	private float lastGroundedTime; // tiempo desde la ultima vez en el suelo
 	private float lastJumpTime; // tiempo desde el ultimo salto
+	private float JumpBufferTime = 0.1f; // Tiempo para volver a saltar 
 	private float gravityScale;
 
 	private void Start(){
@@ -42,15 +51,16 @@ public class PlayerMovement : MonoBehaviour
 	private void Update(){
 
 		#region INPUTS
-
+			float x = Input.GetAxis("Horizontal");
+        	float y = Input.GetAxis("Vertical");
 			MoveInput.x = Input.GetAxisRaw("Horizontal");
 			MoveInput.y = Input.GetAxisRaw("Vertical");
 
-			if(Input.GetKey(KeyCode.C)){
+			if(Input.GetKey(KeyCode.C)){ // Sigue Ocurriendo Mientras se mantenga presionada la tecla 
 				lastJumpTime = JumpBufferTime;
 			}
 
-			if(Input.GetKeyUp(KeyCode.C)){
+			if(Input.GetKeyUp(KeyCode.C)){ // Ocurre una 1 vez, cuando suelta la tecla devuelve true 
 				OnJumpUp();
 			}
 
@@ -69,6 +79,23 @@ public class PlayerMovement : MonoBehaviour
 				isJumping = false;
 
 			}
+
+			// Condiciones de agarre
+			if(coll.onWall && Input.GetKey(KeyCode.X)){
+
+				rb.gravityScale = 0;
+				rb.velocity = new Vector2(rb.velocity.x, 0);
+
+				float speedModifier = y > 0 ? ClimbTheWall : LowerTheWall;
+
+				rb.velocity = new Vector2(rb.velocity.x, y * (MaxMoveSpeed * speedModifier));
+
+			}else{
+
+				rb.gravityScale = gravityScale;
+
+			}
+
 
 		#endregion
 
@@ -92,13 +119,14 @@ public class PlayerMovement : MonoBehaviour
 	private void FixedUpdate(){
 		
 		#region RUN - MOVIMIENTO   
+			if(CanMove){
 
-			float targetSpeed = MoveInput.x * MaxMoveSpeed; // calcula la direccion en la que queremos movernos y nuestra velocidad deseada
-			float speedDif = targetSpeed - rb.velocity.x; //calcula la diferencia entre la velocidad actual y la velocidad deseada
-			float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Acceleration : Decceleration; // cambiar la tasa de aceleracion dependiendo de la situacion
-			float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, VelPower) * Mathf.Sign(speedDif); //aplica aceleracion a la diferencia de velocidad, la eleva a una potencia establecida para que la aceleracion aumente con velocidades mas altas, finalmente se multiplica por signo para volver a aplicar la direccion
-			rb.AddForce(movement * Vector2.right); // aplica fuerza fuerza a rigidbody, multiplicando por Vector2.right para que solo afecte el eje X
-
+				float targetSpeed = MoveInput.x * MaxMoveSpeed; // calcula la direccion en la que queremos movernos y nuestra velocidad deseada
+				float speedDif = targetSpeed - rb.velocity.x; //calcula la diferencia entre la velocidad actual y la velocidad deseada
+				float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Acceleration : Decceleration; // cambiar la tasa de aceleracion dependiendo de la situacion
+				float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, VelPower) * Mathf.Sign(speedDif); //aplica aceleracion a la diferencia de velocidad, la eleva a una potencia establecida para que la aceleracion aumente con velocidades mas altas, finalmente se multiplica por signo para volver a aplicar la direccion
+				rb.AddForce(movement * Vector2.right); // aplica fuerza fuerza a rigidbody, multiplicando por Vector2.right para que solo afecte el eje X
+			}
 		#endregion
 
 		#region Jump Gravity
