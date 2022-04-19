@@ -22,8 +22,13 @@ public class PlayerMovement : MonoBehaviour
 	public float JumpCutMultiplier; // Corte del salto al mantener presionado
 
 	[SerializeField] private float FallGravityMultiplier;
+	
+	[SerializeField] private Vector2 WallJumpForce;
+	public float WallJumpStopRunTime;
 
 	[Header(" WALL - PARED")]
+
+	[SerializeField] private bool CanWallJump;
 
 	[SerializeField] private bool SlideWall; // Deja deslizarse
 	[SerializeField] private float ClimbTheWall; // Fuerza con la que sube el personaje 
@@ -108,8 +113,20 @@ public class PlayerMovement : MonoBehaviour
 
 		#region JUMP
 
-			if(lastGroundedTime > 0 && lastJumpTime > 0 && !isJumping){
-				Jump();
+			if(JumpInputRealeased && lastJumpTime > 0 && !isJumping){
+					
+				if(lastGroundedTime > 0){
+					
+					Jump();
+					Debug.Log("Salto Normal ");
+
+				}else if(coll.onWall && CanWallJump){
+
+					WallJump(WallJumpForce.x, WallJumpForce.y);
+					//StopMovement(WallJumpStopRunTime);
+					Debug.Log("Salto en pared");
+				}
+					
 			}
 
 		#endregion
@@ -170,6 +187,29 @@ public class PlayerMovement : MonoBehaviour
 		JumpInputRealeased = true;
 		lastJumpTime = 0;
 
+	}
+
+	private void WallJump(float jumpForceX, float jumpForceY)
+	{
+		//flips x force if facing other direction, since when we Turn() our player the CheckPoints swap around
+		
+		jumpForceX *= coll.wallSide;
+
+		float momentumForce = rb.velocity.x * Mathf.Sign(jumpForceX);
+
+		//apply force, using impluse force mode
+		rb.AddForce(new Vector2(jumpForceX + momentumForce, jumpForceY), ForceMode2D.Impulse);
+		//rb.velocity = new Vector2(jumpForceX, jumpForceY);
+		lastJumpTime = 0;
+		isJumping = true;
+		JumpInputRealeased = false;
+
+	}
+	private IEnumerator StopMovement(float duration)
+	{
+		CanMove = false;
+		yield return new WaitForSeconds(duration);
+		CanMove = true;
 	}
 
 
