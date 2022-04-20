@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rooms : MonoBehaviour
 {
 
-    public GameObject virtualCamera;
+    public GameObject virtualCam;
     
 
     private void OnTriggerEnter2D(Collider2D other){
