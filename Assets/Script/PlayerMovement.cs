@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float ClimbTheWall; // Fuerza con la que sube el personaje 
 	[SerializeField] private float LowerTheWall; // Fuerza con la que baja el personaje
 
+	[Header("DASH")]
+	[SerializeField] private float dashSpeed;
+	[SerializeField] private float TimeDash;
 	private Vector2 MoveInput; // Vector de eje X y eje Y
 
 	[Header("VERIFICANDO")]
@@ -42,11 +45,16 @@ public class PlayerMovement : MonoBehaviour
 	public bool JumpInputRealeased; // Si el salto se encuentra liberado 
 	public bool climbing;
 
+	public bool isDashing;
+	public bool CanDash;
+
 	// Variables De Tiempo
 	private float lastGroundedTime; // tiempo desde la ultima vez en el suelo
 	private float lastJumpTime; // tiempo desde el ultimo salto
 	private float JumpBufferTime = 0.1f; // Tiempo para volver a saltar 
 	private float gravityScale;
+
+	private Vector2 dir;
 
 	private void Start(){
 
@@ -63,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
         	float y = Input.GetAxis("Vertical");
 			MoveInput.x = Input.GetAxisRaw("Horizontal");
 			MoveInput.y = Input.GetAxisRaw("Vertical");
+			Vector2 dir = new Vector2(MoveInput.x, MoveInput.y);
 
 			if(Input.GetKey(KeyCode.C)){ // Sigue Ocurriendo Mientras se mantenga presionada la tecla 
 				lastJumpTime = JumpBufferTime;
@@ -74,6 +83,19 @@ public class PlayerMovement : MonoBehaviour
 			
 			}
 
+			if (Input.GetKeyDown(KeyCode.Z) && CanDash){
+            	
+				CanDash = false;
+				isDashing = true;
+				if(dir == Vector2.zero){
+					dir = new Vector2(transform.localScale.x, 0);
+							
+				}   
+                Dash(dir);
+
+        	}
+
+
 		#endregion
 
 		#region CHECKS
@@ -81,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 			if(coll.onGround){ // Verifica si se encuentra en el suelo
 
 				lastGroundedTime = JumpCoyoteTime;
-
+				CanDash = true;
 			}
 
 			if(rb.velocity.y <= 0 && JumpInputRealeased){
@@ -89,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
 				isJumping = false;
 
 			}
+			
 
 			// Condiciones de agarre
 			if(coll.onWall && Input.GetKey(KeyCode.X)){
@@ -211,6 +234,15 @@ public class PlayerMovement : MonoBehaviour
 		yield return new WaitForSeconds(duration);
 		CanMove = true;
 	}
+
+	private void Dash(Vector2 dir)
+    {
+
+        rb.velocity += dir.normalized * dashSpeed;
+
+		StopMovement(TimeDash);
+    
+    }
 
 
 }
