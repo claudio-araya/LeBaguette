@@ -5412,7 +5412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07a7b24908bdbf4c843a5ca9f3d4cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 1897531270}
+  virtualCam: {fileID: 1897531270}
 --- !u!1 &1585349067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5481,13 +5481,22 @@ MonoBehaviour:
   WallJumpForce: {x: 10, y: 10}
   WallJumpStopRunTime: 0
   CanWallJump: 1
-  SlideWall: 1
   ClimbTheWall: 1
   LowerTheWall: 1
+  slideGravity: 0
+  dashSpeed: 0
+  TimeDash: 0
+  CoolDownDash: 0
   CanMove: 1
   isJumping: 0
   JumpInputRealeased: 0
   climbing: 0
+  isFacingRight: 1
+  isDashing: 0
+  CanDash: 0
+  slideWall: 0
+  x: 0
+  y: 0
 --- !u!50 &1585349070
 Rigidbody2D:
   serializedVersion: 4
@@ -6051,4 +6060,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07a7b24908bdbf4c843a5ca9f3d4cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 374444387}
+  virtualCam: {fileID: 374444387}
