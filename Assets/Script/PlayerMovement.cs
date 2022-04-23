@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 	[Header("Referencias")]
 	private Rigidbody2D rb;
+	private SpriteRenderer sr;
 	private DetecColision coll;
 
 	[Header("RUN - MOVIMIENTO")]
@@ -29,14 +30,15 @@ public class PlayerMovement : MonoBehaviour
 	[Header(" WALL - PARED")]
 
 	[SerializeField] private bool CanWallJump;
-
-	[SerializeField] private bool SlideWall; // Deja deslizarse
 	[SerializeField] private float ClimbTheWall; // Fuerza con la que sube el personaje 
 	[SerializeField] private float LowerTheWall; // Fuerza con la que baja el personaje
+	[SerializeField] private float slideGravity;
+
 
 	[Header("DASH")]
 	[SerializeField] private float dashSpeed;
 	[SerializeField] private float TimeDash;
+	[SerializeField] private float CoolDownDash;
 	private Vector2 MoveInput; // Vector de eje X y eje Y
 
 	[Header("VERIFICANDO")]
@@ -44,22 +46,28 @@ public class PlayerMovement : MonoBehaviour
 	public bool isJumping; // Si se encuentra saltando
 	public bool JumpInputRealeased; // Si el salto se encuentra liberado 
 	public bool climbing;
-
+	public bool isFacingRight = true;
 	public bool isDashing;
 	public bool CanDash;
+	public bool slideWall; // Deja deslizarse
 
 	// Variables De Tiempo
 	private float lastGroundedTime; // tiempo desde la ultima vez en el suelo
 	private float lastJumpTime; // tiempo desde el ultimo salto
 	private float JumpBufferTime = 0.1f; // Tiempo para volver a saltar 
 	private float gravityScale;
+	private float nexDash;
 
+	
 	private Vector2 dir;
+	public float x;
+    public float y;
 
 	private void Start(){
 
 		rb = GetComponent<Rigidbody2D>();
 		coll = GetComponent<DetecColision>();
+		sr = GetComponent<SpriteRenderer>();
 		gravityScale = rb.gravityScale;
 
 	}
@@ -67,11 +75,11 @@ public class PlayerMovement : MonoBehaviour
 	private void Update(){
 
 		#region INPUTS
-			float x = Input.GetAxis("Horizontal");
-        	float y = Input.GetAxis("Vertical");
+			x = Input.GetAxis("Horizontal");
+        	y = Input.GetAxis("Vertical");
 			MoveInput.x = Input.GetAxisRaw("Horizontal");
 			MoveInput.y = Input.GetAxisRaw("Vertical");
-			Vector2 dir = new Vector2(MoveInput.x, MoveInput.y);
+			dir = new Vector2(MoveInput.x, MoveInput.y);
 
 			if(Input.GetKey(KeyCode.C)){ // Sigue Ocurriendo Mientras se mantenga presionada la tecla 
 				lastJumpTime = JumpBufferTime;
@@ -83,20 +91,23 @@ public class PlayerMovement : MonoBehaviour
 			
 			}
 
-			if (Input.GetKeyDown(KeyCode.Z) && CanDash){
+			if (Time.time > nexDash && Input.GetKeyDown(KeyCode.Z) && CanDash && CanMove){
             	
-				CanDash = false;
-				isDashing = true;
-				if(dir == Vector2.zero){
-					dir = new Vector2(transform.localScale.x, 0);
-							
-				}   
-                Dash(dir);
+                Dash();
 
         	}
 
-
 		#endregion
+
+		#region GIRO PLAYER
+            if(MoveInput.x > 0 && !isFacingRight){
+                Girar();
+            }
+
+            if(MoveInput.x < 0 && isFacingRight){
+                Girar();
+            }
+        #endregion
 
 		#region CHECKS
 
@@ -106,31 +117,29 @@ public class PlayerMovement : MonoBehaviour
 				CanDash = true;
 			}
 
-			if(rb.velocity.y <= 0 && JumpInputRealeased){
+			if(rb.velocity.y <= 0){
 
 				isJumping = false;
 
 			}
 			
-
 			// Condiciones de agarre
-			if(coll.onWall && Input.GetKey(KeyCode.X)){
+			if(coll.onWall && Input.GetKey(KeyCode.X) && CanMove){
 				
 				climbing = true;
-				rb.gravityScale = 0;
-				rb.velocity = new Vector2(rb.velocity.x, 0);
+				Grab();
 
-				float speedModifier = y > 0 ? ClimbTheWall : LowerTheWall;
-
-				rb.velocity = new Vector2(rb.velocity.x, y * (MaxMoveSpeed * speedModifier));
+			}else if(coll.onWall && rb.velocity.y < 0  && (x == 1 || x == -1)){
+				slideWall = true;
+				SlideWall();
 
 			}else{
 				climbing = false;
+				slideWall = false;
 				rb.gravityScale = gravityScale;
 				
-
 			}
-
+		
 
 		#endregion
 
@@ -138,16 +147,15 @@ public class PlayerMovement : MonoBehaviour
 
 			if(JumpInputRealeased && lastJumpTime > 0 && !isJumping){
 					
-				if(lastGroundedTime > 0){
-					
+				if(lastGroundedTime > 0 ){
 					Jump();
-					Debug.Log("Salto Normal ");
+				
+				}
 
-				}else if(coll.onWall && CanWallJump){
+				if(!coll.onGround && coll.onWall && CanWallJump){
 
 					WallJump(WallJumpForce.x, WallJumpForce.y);
-					//StopMovement(WallJumpStopRunTime);
-					Debug.Log("Salto en pared");
+					
 				}
 					
 			}
@@ -176,19 +184,29 @@ public class PlayerMovement : MonoBehaviour
 			}
 		#endregion
 
+		
+
 		#region Jump Gravity
-			if (rb.velocity.y < 0 && lastGroundedTime <= 0 && !climbing){
+			if (rb.velocity.y < 0 && lastGroundedTime <= 0 && climbing == false && slideWall == false){
 
 				rb.gravityScale = gravityScale * FallGravityMultiplier;
-				
+		
 			
-			}else if(SlideWall){
+			}//else if(slideWall){
 				
-				rb.gravityScale = gravityScale;
-			}
+				//rb.gravityScale = gravityScale;
+			
+			//}
 		#endregion
 
 	}
+
+	private void Girar(){
+
+		sr.flipX = isFacingRight;
+        isFacingRight = !isFacingRight;
+
+    }
 
 	private void Jump(){ // Realiza el salto
 
@@ -212,17 +230,33 @@ public class PlayerMovement : MonoBehaviour
 
 	}
 
+	private void Grab(){
+
+		rb.gravityScale = 0;
+		rb.velocity = new Vector2(rb.velocity.x, 0);	
+		float speedModifier = y > 0 ? ClimbTheWall : LowerTheWall;
+		rb.velocity = new Vector2(rb.velocity.x, y * (MaxMoveSpeed * speedModifier));
+		
+	}
+
+	private void SlideWall(){
+
+		rb.velocity = new Vector2(rb.velocity.x, -slideGravity);
+
+	}
+
 	private void WallJump(float jumpForceX, float jumpForceY)
 	{
-		//flips x force if facing other direction, since when we Turn() our player the CheckPoints swap around
+	
+		jumpForceX *= -coll.wallSide;
 		
-		jumpForceX *= coll.wallSide;
+        StopCoroutine(StopMovement(0));
+        StartCoroutine(StopMovement(WallJumpStopRunTime));
 
 		float momentumForce = rb.velocity.x * Mathf.Sign(jumpForceX);
-
-		//apply force, using impluse force mode
 		rb.AddForce(new Vector2(jumpForceX + momentumForce, jumpForceY), ForceMode2D.Impulse);
-		//rb.velocity = new Vector2(jumpForceX, jumpForceY);
+		Girar();
+
 		lastJumpTime = 0;
 		isJumping = true;
 		JumpInputRealeased = false;
@@ -235,13 +269,24 @@ public class PlayerMovement : MonoBehaviour
 		CanMove = true;
 	}
 
-	private void Dash(Vector2 dir)
+	private void Dash()
     {
+		nexDash = Time.time + CoolDownDash;
+		CanDash = false;
+		isDashing = true;
+		
+		if(dir == Vector2.zero){
+			if(isFacingRight){
+				dir = new Vector2(1, 0);
+			}else{
+				dir = new Vector2(-1, 0);
+			}
+		}
 
-        rb.velocity += dir.normalized * dashSpeed;
+		StartCoroutine(StopMovement(TimeDash));
+        rb.velocity = dir.normalized * dashSpeed;
+		isDashing = false;
 
-		StopMovement(TimeDash);
-    
     }
 
 
