@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public Text UItexto;
-    private int segundos = 57;
-    private int minutos = 9;
+    private int segundos = 0;
+    private int minutos = 0;
     public int total = 0;
 
     private void Awake()
