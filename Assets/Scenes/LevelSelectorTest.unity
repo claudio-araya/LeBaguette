@@ -1304,7 +1304,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2136761887}
         m_TargetAssemblyTypeName: CambiarEscena, Assembly-CSharp
-        m_MethodName: BotonVolverMainMenu
+        m_MethodName: BotonVolverMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

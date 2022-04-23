@@ -21,42 +21,12 @@ public class CambiarEscena : MonoBehaviour
         SceneManager.LoadScene("LevelSelectorTest");
     }
 
-    public void BotonOpciones()
-    {
-        SceneManager.LoadScene("opcionesScene");
-    }
-
-    public void BotonRanking()
-    {
-        SceneManager.LoadScene("rankingScene");
-    }
-
-    public void BotonCreditos()
-    {
-        SceneManager.LoadScene("creditosScene");
-    }
-
     public void BotonSalir()
     {
         Application.Quit();
     }
 
-    public void BotonGraficos()
-    {
-        SceneManager.LoadScene("");
-    }
-
-    public void BotonSonidos()
-    {
-        SceneManager.LoadScene("");
-    }
-
-    public void BotonControles()
-    {
-        SceneManager.LoadScene("");
-    }
-
-    public void BotonVolverMainMenu()
+    public void BotonVolverMenu()
     {
         SceneManager.LoadScene("mainMenu");
     }

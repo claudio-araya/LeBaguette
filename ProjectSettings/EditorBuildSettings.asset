@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CameraTest.unity
     guid: fa898af9bd5c7bc4c998a62f98db48d9
   - enabled: 1
-    path: Assets/Scenes/creditosScene.unity
-    guid: ee42f60dabf29ac42acdd231242bc022
-  - enabled: 1
     path: Assets/Scenes/LevelSelectorTest.unity
     guid: 31d9f1ae16431ba4ca6b55743a4302c7
   - enabled: 1
@@ -32,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/opcionesScene.unity
     guid: d00d3ce6d9d18394d84bb2660f35d7ea
-  - enabled: 1
-    path: Assets/Scenes/rankingScene.unity
-    guid: 6c50c8553831ea645bda67147bba78a8
   - enabled: 1
     path: Assets/Scenes/salirScene.unity
     guid: 7eab2cf9ead1e8d44a0f4e191482fc02
