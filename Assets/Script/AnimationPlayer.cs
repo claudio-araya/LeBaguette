@@ -28,5 +28,6 @@ public class AnimationPlayer : MonoBehaviour
         anim.SetBool("Climbing", MovePlayer.climbing);
         anim.SetBool("SlideWall", MovePlayer.slideWall);
         anim.SetBool("ClimbingUp", MovePlayer.y > 0 && MovePlayer.climbing);
+        anim.SetBool("isDashing", MovePlayer.isDashing);
     }
 }

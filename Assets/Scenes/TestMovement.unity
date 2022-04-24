@@ -651,7 +651,7 @@ MonoBehaviour:
   ClimbTheWall: 0.5
   LowerTheWall: 1
   slideGravity: 0.5
-  dashSpeed: 15
+  dashSpeed: 12
   TimeDash: 0.2
   CoolDownDash: 0.5
   CanMove: 1

@@ -91,11 +91,6 @@ public class PlayerMovement : MonoBehaviour
 			
 			}
 
-			if (Time.time > nexDash && Input.GetKeyDown(KeyCode.Z) && CanDash && CanMove){
-            	
-                Dash();
-
-        	}
 
 		#endregion
 
@@ -134,11 +129,22 @@ public class PlayerMovement : MonoBehaviour
 				SlideWall();
 
 			}else{
+
 				climbing = false;
 				slideWall = false;
-				rb.gravityScale = gravityScale;
-				
+
 			}
+			
+			if(Time.time > nexDash && Input.GetKeyDown(KeyCode.Z) && CanDash && CanMove){
+            	
+				CanDash = false;
+                Dash();
+
+        	}//else{
+				
+				//isDashing = false;
+				
+			//}
 		
 
 		#endregion
@@ -192,11 +198,11 @@ public class PlayerMovement : MonoBehaviour
 				rb.gravityScale = gravityScale * FallGravityMultiplier;
 		
 			
-			}//else if(slideWall){
+			}else if(!slideWall && !climbing && !isDashing && CanMove){
 				
-				//rb.gravityScale = gravityScale;
+				rb.gravityScale = gravityScale;
 			
-			//}
+			}
 		#endregion
 
 	}
@@ -270,12 +276,19 @@ public class PlayerMovement : MonoBehaviour
 		CanMove = true;
 	}
 
+	private IEnumerator StopDash(float duration)
+	{
+		CanMove = false;
+		isDashing = true;
+		yield return new WaitForSeconds(duration);
+		isDashing = false;
+		CanMove = true;
+	}
+
 	private void Dash()
     {
 		nexDash = Time.time + CoolDownDash;
-		CanDash = false;
-		isDashing = true;
-		
+	
 		if(dir == Vector2.zero){
 			if(isFacingRight){
 				dir = new Vector2(1, 0);
@@ -284,9 +297,10 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 
-		StartCoroutine(StopMovement(TimeDash));
+		StartCoroutine(StopDash(TimeDash));
+		rb.gravityScale = 0;
         rb.velocity = dir.normalized * dashSpeed;
-		isDashing = false;
+		
 
     }
 
