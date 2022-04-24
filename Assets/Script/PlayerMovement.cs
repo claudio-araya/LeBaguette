@@ -129,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
 				climbing = true;
 				Grab();
 
-			}else if(coll.onWall && rb.velocity.y < 0  && (x == 1 || x == -1)){
+			}else if(coll.onWall && rb.velocity.y < 0  && (x != 0)){
 				slideWall = true;
 				SlideWall();
 
@@ -250,11 +250,12 @@ public class PlayerMovement : MonoBehaviour
 	
 		jumpForceX *= -coll.wallSide;
 		
-        StopCoroutine(StopMovement(0));
+        //StopCoroutine(StopMovement(0));
         StartCoroutine(StopMovement(WallJumpStopRunTime));
 
 		float momentumForce = rb.velocity.x * Mathf.Sign(jumpForceX);
-		rb.AddForce(new Vector2(jumpForceX + momentumForce, jumpForceY), ForceMode2D.Impulse);
+		rb.velocity = new Vector2(jumpForceX + momentumForce, jumpForceY);
+		
 		Girar();
 
 		lastJumpTime = 0;
