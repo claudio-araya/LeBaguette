@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CameraTest.unity
+    path: Assets/Scenes/Camara-Trampas.unity
     guid: fa898af9bd5c7bc4c998a62f98db48d9
   - enabled: 1
     path: Assets/Scenes/LevelSelectorTest.unity
