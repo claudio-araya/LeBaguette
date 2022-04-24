@@ -14,7 +14,7 @@ public class SlotInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lvlNumberShow.text = numberLvl.ToString();
+        lvlNumberShow.text = ("Nivel " + numberLvl.ToString());
     }
 
     public void CargaNivel()
