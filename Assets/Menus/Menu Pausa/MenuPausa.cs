@@ -17,6 +17,7 @@ public class MenuPausa : MonoBehaviour
     public void Pausa()
     {
         Time.timeScale = 0f;
+
         botonPausa.SetActive(false);
         menuPausa.SetActive(true);
     }
@@ -37,10 +38,12 @@ public class MenuPausa : MonoBehaviour
     public void Volver()
     {
         SceneManager.LoadScene("LevelSelectorTest");
+        Time.timeScale = 1f;
     }
 
     public void BackMenu()
     {
         SceneManager.LoadScene("mainMenu");
+        Time.timeScale = 1f;
     }
 }
