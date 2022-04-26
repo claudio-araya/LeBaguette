@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 	private float gravityScale;
 	private float nexDash;
 
-	
+	private Vector3 respawnPoint;
 	private Vector2 dir;
 	public float x;
     public float y;
@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
 		coll = GetComponent<DetecColision>();
 		sr = GetComponent<SpriteRenderer>();
 		gravityScale = rb.gravityScale;
+		respawnPoint = transform.position;
 
 	}
 
@@ -304,5 +305,21 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+	private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if(collision.tag == "Enemy")
+        {
+			rb.velocity = new Vector2(0, 0);
+			StartCoroutine(StopMovement(0.5f));
+            transform.position = respawnPoint;
+			
+        }
+    	
+		else if(collision.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+        }
+    }
 
 }
