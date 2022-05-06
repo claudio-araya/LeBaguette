@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 15046719}
   - component: {fileID: 15046718}
   - component: {fileID: 15046717}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 0b1610b658dbb5349a38b3d37e3b55dd, type: 2}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 254358374}
   - component: {fileID: 254358373}
   - component: {fileID: 254358372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spike (2)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254358371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.19, y: 4.61, z: 4.89}
+  m_LocalPosition: {x: -3.16, y: 4.84, z: 4.89}
   m_LocalScale: {x: 0.2772, y: 0.2772, z: 0.2772}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2773,7 +2773,7 @@ GameObject:
   - component: {fileID: 1072354490}
   - component: {fileID: 1072354489}
   - component: {fileID: 1072354488}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spike (4)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2901,7 +2901,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072354487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.19, y: 4.61, z: 4.89}
+  m_LocalPosition: {x: -1.09, y: 4.82, z: 4.89}
   m_LocalScale: {x: 0.2772, y: 0.2772, z: 0.2772}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2921,7 +2921,7 @@ GameObject:
   - component: {fileID: 1394113881}
   - component: {fileID: 1394113880}
   - component: {fileID: 1394113879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spike (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3049,7 +3049,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394113878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.12, y: 4.61, z: 4.89}
+  m_LocalPosition: {x: -4.21, y: 4.84, z: 4.89}
   m_LocalScale: {x: 0.2772, y: 0.2772, z: 0.2772}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3069,7 +3069,7 @@ GameObject:
   - component: {fileID: 1455457343}
   - component: {fileID: 1455457342}
   - component: {fileID: 1455457341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spike
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3136,7 +3136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455457338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.12, y: 4.61, z: 4.89}
+  m_LocalPosition: {x: -5.27, y: 4.84, z: 4.89}
   m_LocalScale: {x: 0.2772, y: 0.2772, z: 0.2772}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3188,7 +3188,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.79473567}
@@ -3347,7 +3347,7 @@ GameObject:
   - component: {fileID: 1723549374}
   - component: {fileID: 1723549373}
   - component: {fileID: 1723549372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spike (3)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3475,7 +3475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723549371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.25, y: 4.61, z: 4.89}
+  m_LocalPosition: {x: -2.11, y: 4.84, z: 4.89}
   m_LocalScale: {x: 0.2772, y: 0.2772, z: 0.2772}
   m_ConstrainProportionsScale: 0
   m_Children: []

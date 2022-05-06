@@ -305,10 +305,10 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if(collision.tag == "Enemy")
+        if(collision.gameObject.layer == 7)
         {
 			rb.velocity = new Vector2(0, 0);
 			StartCoroutine(StopMovement(0.5f));
@@ -316,7 +316,7 @@ public class PlayerMovement : MonoBehaviour
 			
         }
     	
-		else if(collision.tag == "Checkpoint")
+		else if(collision.gameObject.tag == "Checkpoint")
         {
             respawnPoint = transform.position;
         }

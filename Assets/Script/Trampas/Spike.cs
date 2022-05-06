@@ -62,7 +62,7 @@ public class Spike : MonoBehaviour
     {
         if (collision.tag == "Player")
             Stop();
-        Stop();
+        
     }
 
 }
