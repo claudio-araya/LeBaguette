@@ -191,8 +191,6 @@ public class PlayerMovement : MonoBehaviour
 			}
 		#endregion
 
-		
-
 		#region Jump Gravity
 			if (rb.velocity.y < 0 && lastGroundedTime <= 0 && climbing == false && slideWall == false){
 
@@ -254,14 +252,13 @@ public class PlayerMovement : MonoBehaviour
 
 	private void WallJump(float jumpForceX, float jumpForceY)
 	{
-	
-		jumpForceX *= -coll.wallSide;
-		
-        //StopCoroutine(StopMovement(0));
+
+		rb.gravityScale = gravityScale;
+		jumpForceX *= -coll.wallSide;  
+
         StartCoroutine(StopMovement(WallJumpStopRunTime));
 
-		float momentumForce = rb.velocity.x * Mathf.Sign(jumpForceX);
-		rb.velocity = new Vector2(jumpForceX + momentumForce, jumpForceY);
+		rb.velocity = new Vector2(jumpForceX, jumpForceY);
 		
 		Girar();
 
@@ -305,8 +302,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-	private void OnCollisionEnter2D(Collision2D collision)
-    {
+	private void OnCollisionEnter2D(Collision2D collision){
 
         if(collision.gameObject.layer == 7)
         {
@@ -316,10 +312,15 @@ public class PlayerMovement : MonoBehaviour
 			
         }
     	
-		else if(collision.gameObject.tag == "Checkpoint")
+    }
+
+	private void OnTriggerEnter2D(Collider2D collision){
+		
+		if(collision.gameObject.layer == 8)
         {
             respawnPoint = transform.position;
         }
-    }
+
+	}
 
 }
