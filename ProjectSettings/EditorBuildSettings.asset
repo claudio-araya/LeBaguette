@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Camara.unity
     guid: fa898af9bd5c7bc4c998a62f98db48d9
   - enabled: 1
-    path: Assets/Scenes/LevelSelectorTest.unity
+    path: Assets/Scenes/MainMenu/SelectorNiveles/LevelSelectorTest.unity
     guid: 31d9f1ae16431ba4ca6b55743a4302c7
   - enabled: 1
-    path: Assets/Scenes/mainMenu.unity
+    path: Assets/Scenes/mainMenu/mainMenu.unity
     guid: de3ac5e61b3ecfd4f8a7dcbafd90f35c
   - enabled: 1
-    path: Assets/Scenes/Nivel 1.unity
+    path: Assets/Scenes/Niveles/Nivel 1.unity
     guid: 45e74007b52e6f14ca3827c949501d11
   - enabled: 1
     path: Assets/Scenes/Nivel 2.unity
@@ -27,10 +27,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel 4.unity
     guid: 575a31b9e13714248bfc0ae8f25f3322
   - enabled: 1
-    path: Assets/Scenes/opcionesScene.unity
+    path: Assets/Scenes/mainMenu/opcionesScene.unity
     guid: d00d3ce6d9d18394d84bb2660f35d7ea
   - enabled: 1
-    path: Assets/Scenes/salirScene.unity
+    path: Assets/Scenes/mainMenu/salirScene.unity
     guid: 7eab2cf9ead1e8d44a0f4e191482fc02
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity

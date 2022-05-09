@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Key : MonoBehaviour
 {
@@ -20,6 +19,7 @@ public class Key : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             controljuego.desbloquearNivel();
             Destroy(gameObject, 1f);
+            SceneManager.LoadScene("LevelSelectorTest");
 
         }
     }
