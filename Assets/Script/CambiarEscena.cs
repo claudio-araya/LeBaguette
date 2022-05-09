@@ -5,12 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class CambiarEscena : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -21,13 +15,20 @@ public class CambiarEscena : MonoBehaviour
         SceneManager.LoadScene("LevelSelectorTest");
     }
 
-    public void BotonSalir()
+    public void BotonOpciones()
     {
-        Application.Quit();
+        SceneManager.LoadScene("opcionesScene");
     }
 
     public void BotonVolverMenu()
     {
         SceneManager.LoadScene("mainMenu");
     }
+
+    public void BotonSalir()
+    {
+        Application.Quit();
+    }
+
+    
 }
