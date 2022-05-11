@@ -19,8 +19,10 @@ public class ControlJuego : MonoBehaviour
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "LevelSelectorTest")
+        {
             cargaryGuardar.Guardar();
             actualizarBotones();
+        }
     }
     public void cambiarNivel(int nivel)
     {
