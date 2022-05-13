@@ -7,8 +7,9 @@ public class Invisible : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision) // Si el suelo toca al player se desactiva
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player"){
             animF.Play("Fade");
+        }
     }
 
 }
