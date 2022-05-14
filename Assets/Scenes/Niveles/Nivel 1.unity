@@ -167,7 +167,6 @@ GameObject:
   - component: {fileID: 30751042}
   - component: {fileID: 30751045}
   - component: {fileID: 30751044}
-  - component: {fileID: 30751043}
   m_Layer: 7
   m_Name: spike (7)
   m_TagString: Enemy
@@ -190,20 +189,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &30751043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30751041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &30751044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3414,7 +3399,6 @@ GameObject:
   - component: {fileID: 174061032}
   - component: {fileID: 174061035}
   - component: {fileID: 174061034}
-  - component: {fileID: 174061033}
   m_Layer: 7
   m_Name: spike (5)
   m_TagString: Enemy
@@ -3437,20 +3421,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &174061033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174061031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &174061034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4063,7 +4033,6 @@ GameObject:
   - component: {fileID: 273957415}
   - component: {fileID: 273957418}
   - component: {fileID: 273957417}
-  - component: {fileID: 273957416}
   m_Layer: 7
   m_Name: spike (3)
   m_TagString: Enemy
@@ -4086,20 +4055,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &273957416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273957414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &273957417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4382,7 +4337,6 @@ GameObject:
   - component: {fileID: 340249025}
   - component: {fileID: 340249028}
   - component: {fileID: 340249027}
-  - component: {fileID: 340249026}
   m_Layer: 7
   m_Name: spike
   m_TagString: Enemy
@@ -4405,20 +4359,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &340249026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 340249024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &340249027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11650,7 +11590,6 @@ GameObject:
   - component: {fileID: 937282907}
   - component: {fileID: 937282910}
   - component: {fileID: 937282909}
-  - component: {fileID: 937282908}
   m_Layer: 7
   m_Name: spike (1)
   m_TagString: Enemy
@@ -11673,20 +11612,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &937282908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937282906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &937282909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11776,7 +11701,6 @@ GameObject:
   - component: {fileID: 954432331}
   - component: {fileID: 954432334}
   - component: {fileID: 954432333}
-  - component: {fileID: 954432332}
   m_Layer: 7
   m_Name: spike (4)
   m_TagString: Enemy
@@ -11799,20 +11723,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &954432332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954432330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &954432333
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11902,7 +11812,6 @@ GameObject:
   - component: {fileID: 959282786}
   - component: {fileID: 959282789}
   - component: {fileID: 959282788}
-  - component: {fileID: 959282787}
   m_Layer: 7
   m_Name: spike (6)
   m_TagString: Enemy
@@ -11925,20 +11834,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &959282787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959282785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &959282788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12772,7 +12667,6 @@ GameObject:
   - component: {fileID: 1069656568}
   - component: {fileID: 1069656571}
   - component: {fileID: 1069656570}
-  - component: {fileID: 1069656569}
   m_Layer: 7
   m_Name: spike (8)
   m_TagString: Enemy
@@ -12795,20 +12689,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1069656569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069656567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &1069656570
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13065,7 +12945,6 @@ GameObject:
   - component: {fileID: 1113122876}
   - component: {fileID: 1113122879}
   - component: {fileID: 1113122878}
-  - component: {fileID: 1113122877}
   m_Layer: 7
   m_Name: spike (2)
   m_TagString: Enemy
@@ -13088,20 +12967,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1113122877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113122875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &1113122878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20038,7 +19903,6 @@ GameObject:
   - component: {fileID: 1646931327}
   - component: {fileID: 1646931330}
   - component: {fileID: 1646931329}
-  - component: {fileID: 1646931328}
   m_Layer: 7
   m_Name: spike (9)
   m_TagString: Enemy
@@ -20061,20 +19925,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1646931328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646931326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &1646931329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20973,7 +20823,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738622848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48, y: 4.5, z: 0}
+  m_LocalPosition: {x: -8.7, y: -2.98, z: 0}
   m_LocalScale: {x: 1.9, y: 1.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30403,7 +30253,6 @@ GameObject:
   - component: {fileID: 2134437662}
   - component: {fileID: 2134437665}
   - component: {fileID: 2134437664}
-  - component: {fileID: 2134437663}
   m_Layer: 7
   m_Name: spike (10)
   m_TagString: Enemy
@@ -30426,20 +30275,6 @@ Transform:
   m_Father: {fileID: 649133085}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2134437663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134437661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412d596f4928fde469e6ce722995ee99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 9.65
-  velocidad: 5
 --- !u!61 &2134437664
 BoxCollider2D:
   m_ObjectHideFlags: 0
