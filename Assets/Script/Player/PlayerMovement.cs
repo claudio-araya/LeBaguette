@@ -307,7 +307,7 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.layer == 7)
         {
 			rb.velocity = new Vector2(0, 0);
-			StartCoroutine(StopMovement(0.5f));
+			StartCoroutine(StopMovement(0.1f));
             transform.position = respawnPoint;
 			
         }
