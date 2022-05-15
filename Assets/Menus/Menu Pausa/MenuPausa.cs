@@ -8,7 +8,6 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
 
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

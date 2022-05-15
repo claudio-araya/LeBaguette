@@ -7,8 +7,8 @@ public class GravedadObjeto : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    
-	private void Start(){
+
+    private void Start(){
 
 		rb = GetComponent<Rigidbody2D>();
 
@@ -17,9 +17,8 @@ public class GravedadObjeto : MonoBehaviour
     protected void OnCollisionEnter2D(Collision2D collision){ // Si el suelo toca al player se desactiva
         if (collision.gameObject.tag == "Player"){
             rb.gravityScale = 5;
-            StartCoroutine(delay()); 
+            StartCoroutine(delay());
 
-            
         }
             
    
@@ -29,5 +28,6 @@ public class GravedadObjeto : MonoBehaviour
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
+
 
 }
