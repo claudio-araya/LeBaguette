@@ -8647,8 +8647,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Mant\xE9n    para sujertarte a las paredes"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
-  m_sharedMaterial: {fileID: 8054087743592931453, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 651592df85a701b459dd92c73114c6af, type: 2}
+  m_sharedMaterial: {fileID: -4519530291808651252, guid: 651592df85a701b459dd92c73114c6af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8737,7 +8737,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8054087743592931453, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
+  - {fileID: -4519530291808651252, guid: 651592df85a701b459dd92c73114c6af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8895,8 +8895,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pulsa     para saltar y     para impulsarte
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
-  m_sharedMaterial: {fileID: 8054087743592931453, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 651592df85a701b459dd92c73114c6af, type: 2}
+  m_sharedMaterial: {fileID: -4519530291808651252, guid: 651592df85a701b459dd92c73114c6af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8985,7 +8985,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8054087743592931453, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
+  - {fileID: -4519530291808651252, guid: 651592df85a701b459dd92c73114c6af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12336,8 +12336,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Pulsa     \xF3     para moverte  "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
-  m_sharedMaterial: {fileID: 8054087743592931453, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 651592df85a701b459dd92c73114c6af, type: 2}
+  m_sharedMaterial: {fileID: -4519530291808651252, guid: 651592df85a701b459dd92c73114c6af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12426,7 +12426,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8054087743592931453, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
+  - {fileID: -4519530291808651252, guid: 651592df85a701b459dd92c73114c6af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13435,8 +13435,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Debes ir r\xE1pido para obtener la mejor marca de tiempo"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
-  m_sharedMaterial: {fileID: 8054087743592931453, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 651592df85a701b459dd92c73114c6af, type: 2}
+  m_sharedMaterial: {fileID: -4519530291808651252, guid: 651592df85a701b459dd92c73114c6af, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13525,7 +13525,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8054087743592931453, guid: 08d096310f8b8c14da11edec8a652490, type: 2}
+  - {fileID: -4519530291808651252, guid: 651592df85a701b459dd92c73114c6af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13998,8 +13998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.79, y: 5.67}
-  m_SizeDelta: {x: 7.1228, y: 1.0772}
+  m_AnchoredPosition: {x: -9.86, y: 5.59}
+  m_SizeDelta: {x: 5.1547, y: 0.9531}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1213240955
 MonoBehaviour:
@@ -14023,8 +14023,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 483c10edff53b8a44bd0e03388b5185f, type: 2}
-  m_sharedMaterial: {fileID: -4592053228922835856, guid: 483c10edff53b8a44bd0e03388b5185f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0defee4767a72e4189b6fbbfbac59de, type: 2}
+  m_sharedMaterial: {fileID: -217751658711237054, guid: c0defee4767a72e4189b6fbbfbac59de, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14055,7 +14055,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -14113,7 +14113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4592053228922835856, guid: 483c10edff53b8a44bd0e03388b5185f, type: 2}
+  - {fileID: -217751658711237054, guid: c0defee4767a72e4189b6fbbfbac59de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
