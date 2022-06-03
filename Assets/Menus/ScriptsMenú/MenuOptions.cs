@@ -9,63 +9,69 @@ public class MenuOptions : MonoBehaviour
     public Toggle vSyncToggle;
     public Toggle fullscreenToggle;
 
-    void Start()
-    {
-        RevisarResolucion();
+    public Resolucion[] resolucion;
+    public int SelectedRes;
+    public Text resText;
 
-        fullscreenToggle.isOn = Screen.fullScreen;            
-    }
-    public void Volumen(float volumen)
+    public void Start()
     {
+        fullscreenToggle.isOn = Screen.fullScreen;
+        if (resText.text == " ")
+        {
 
+        }
     }
-    
-    //For some reason no logro hacer que funcione :((
-    public void LimitarFPS()
+
+    public void FullScreen()
+    {
+        if (fullscreenToggle.isOn)
+        {
+            Screen.fullScreen = true;
+        }
+        else
+        {
+            Screen.fullScreen = false;
+        }
+    }
+
+    public void vSync()
     {
         if (vSyncToggle.isOn)
         {
             QualitySettings.vSyncCount = 1;
-        }
-        else
+        }else
         {
             QualitySettings.vSyncCount = 0;
         }
     }
 
-    public TMP_Dropdown resolucionesDropdown;
-    Resolution[] resoluciones;                  //Arreglo que guarda todas las resoluciones de nuestro ordenador
-
-    public void RevisarResolucion()
+    public void left()
     {
-        resoluciones = Screen.resolutions;
-        resolucionesDropdown.ClearOptions();
-        List<string> opciones = new List<string>();
-        int resolucionActual = 0;
-
-        for (int i = 0; i < resoluciones.Length; i++)
+        if (SelectedRes > 0)
         {
-            string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
-            opciones.Add(opcion);
-
-            if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
-            {
-                resolucionActual = i;
-            }
+            SelectedRes--;
         }
-
-        resolucionesDropdown.AddOptions(opciones);
-        resolucionesDropdown.value = resolucionActual;
-        resolucionesDropdown.RefreshShownValue();
-
-        resolucionesDropdown.value = PlayerPrefs.GetInt("numeroResolucion", 0);
+        resText.text = resolucion[SelectedRes].width + " x " + resolucion[SelectedRes].height;
     }
-    
-    public void CambiarResolucion(int indexResolucion)
+    public void rigth()
     {
-        PlayerPrefs.SetInt("numeroResolucion", resolucionesDropdown.value);
-
-        Resolution resolucion = resoluciones[indexResolucion];
-        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
+        if (SelectedRes < resolucion.Length - 1)
+        {
+            SelectedRes++;
+        }
+        resText.text = resolucion[SelectedRes].width + " x " + resolucion[SelectedRes].height;
     }
+
+    public void SetResolution()
+    {
+        Screen.SetResolution(resolucion[SelectedRes].width, resolucion[SelectedRes].height, fullscreenToggle.isOn);
+    }
+
+    public void guardar()
+    {
+        SetResolution();
+        FullScreen();
+        vSync();
+    }
+
 }
