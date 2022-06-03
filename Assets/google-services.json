@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "59359470059",
+    "firebase_url": "https://lebaguette-1be90-default-rtdb.firebaseio.com",
+    "project_id": "lebaguette-1be90",
+    "storage_bucket": "lebaguette-1be90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59359470059:android:8c686ba72c0ef6536bb9ae",
+        "android_client_info": {
+          "package_name": "com.LeBaguette.LostTrain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59359470059-21ug8resdkkmmmthbq2115720asc6rd5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAG6Hb0uKveeuzG4egTlbu4hlEJsJbaYeY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59359470059-21ug8resdkkmmmthbq2115720asc6rd5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
