@@ -19,29 +19,27 @@ public class Database : MonoBehaviour
         
     }
 
-    private void writeNewUser(string userId, string name, string email) {
-        User user = new User(name, email);
+    private void writeNewUser(string userId, string name, int time) {
+        Niveles user = new Niveles(name,time);
         string json = JsonUtility.ToJson(user);
 
-        reference.Child("users").Child(userId).SetRawJsonValueAsync(json);
+        reference.Child("Nivel 1").Child(userId).SetRawJsonValueAsync(json);
     }
 
     public void btn(){
-        writeNewUser("Chupalo", "Carlos", "Chupalo11@gmail.com");
+         
+        writeNewUser("1", "Test", 1000);
 
     }
 
 }
 
-public class User {
+public class Niveles {
     public string username;
-    public string email;
+    public int time;
 
-    public User() {
-    }
-
-    public User(string username, string email) {
+    public Niveles(string username, int time) {
         this.username = username;
-        this.email = email;
+        this.time = time;
     }
 }
