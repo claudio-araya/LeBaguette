@@ -7,6 +7,8 @@ using Firebase.Database;
 public class Database : MonoBehaviour
 {
     DatabaseReference reference;
+    public string nivel; 
+    public string input1;
 
     // Start is called before the first frame update
     void Start() {
@@ -16,20 +18,26 @@ public class Database : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        
+
     }
 
     private void writeNewUser(string userId, string name, string time, int score) {
         Niveles user = new Niveles(name,time,score);
         string json = JsonUtility.ToJson(user);
 
-        reference.Child("Nivel 1").Child(userId).SetRawJsonValueAsync(json);
+        reference.Child(nivel).Child(userId).SetRawJsonValueAsync(json);
     }
 
-    public void btnN1(){
-         
+    public void ReadStringInputID(string id){
+
+        input1 = id;
+        Debug.Log(input1);
+    }
+
+    public void btn(){
+
         writeNewUser("1", "Test","00:00:00", 1111);
-    
+
     }
 
 }
