@@ -9,17 +9,19 @@ public class MenuOptions : MonoBehaviour
     public Toggle vSyncToggle;
     public Toggle fullscreenToggle;
 
+    public bool flagF;
+    public bool flagV;
+
     public Resolucion[] resolucion;
     public int SelectedRes;
     public Text resText;
 
+
+
+    // Screen.currentResolution.width + " x " + Screen.currentResolution.height;
     public void Start()
     {
         fullscreenToggle.isOn = Screen.fullScreen;
-        if (resText.text == " ")
-        {
-
-        }
     }
 
     public void FullScreen()
@@ -27,10 +29,12 @@ public class MenuOptions : MonoBehaviour
         if (fullscreenToggle.isOn)
         {
             Screen.fullScreen = true;
+            flagF = true;
         }
         else
         {
             Screen.fullScreen = false;
+            flagF = false;
         }
     }
 
@@ -39,9 +43,12 @@ public class MenuOptions : MonoBehaviour
         if (vSyncToggle.isOn)
         {
             QualitySettings.vSyncCount = 1;
+            flagV = true;
+
         }else
         {
             QualitySettings.vSyncCount = 0;
+            flagV = false;
         }
     }
 
@@ -64,14 +71,28 @@ public class MenuOptions : MonoBehaviour
 
     public void SetResolution()
     {
-        Screen.SetResolution(resolucion[SelectedRes].width, resolucion[SelectedRes].height, fullscreenToggle.isOn);
+        if (resText.text == "Nativo")
+        {
+            Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, fullscreenToggle.isOn);
+            resText.text = "Nativo";
+        } 
+        else
+        {
+            Screen.SetResolution(resolucion[SelectedRes].width, resolucion[SelectedRes].height, fullscreenToggle.isOn);
+        }
     }
 
     public void guardar()
     {
         SetResolution();
-        FullScreen();
-        vSync();
-    }
 
+        if (flagF)          //Para aplicar fullscreen solo si es True
+        {        
+            FullScreen();
+        }
+        if (flagV)          //Para aplicar vsync solo si es True 
+        {        
+            vSync();
+        }
+    }
 }
