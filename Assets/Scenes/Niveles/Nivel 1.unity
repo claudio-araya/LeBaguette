@@ -748,6 +748,7 @@ MonoBehaviour:
   tiempo: {fileID: 0}
   key: 0
   puntaje: 0
+  tiempoS: 
 --- !u!68 &75712571
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -20707,7 +20708,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -23104,7 +23105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00:00
+  m_text: 00:00:000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0defee4767a72e4189b6fbbfbac59de, type: 2}
   m_sharedMaterial: {fileID: -217751658711237054, guid: c0defee4767a72e4189b6fbbfbac59de, type: 2}
@@ -23167,7 +23168,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.768939, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -24815,7 +24816,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1574499547}
         m_TargetAssemblyTypeName: Database, Assembly-CSharp
-        m_MethodName: btnN1
+        m_MethodName: btn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32557,8 +32558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 440b72780d8e1c344b6f4c74e9fc870c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nivel: 
-  input1: 
+  nivel: Nivel 1
 --- !u!4 &1574499548
 Transform:
   m_ObjectHideFlags: 0
@@ -34365,7 +34365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738622848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.48, y: -2.74, z: 0}
+  m_LocalPosition: {x: -7, y: -2.9, z: 0}
   m_LocalScale: {x: 1.9, y: 1.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37473,7 +37473,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 76.0742, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1936069820
 MonoBehaviour:
@@ -37838,7 +37838,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1574499547}
+        m_TargetAssemblyTypeName: Database, Assembly-CSharp
+        m_MethodName: ReadInputID
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -38125,7 +38137,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1574499547}
+        m_TargetAssemblyTypeName: Database, Assembly-CSharp
+        m_MethodName: ReadInputUsername
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -38773,7 +38797,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

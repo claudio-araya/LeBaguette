@@ -8,7 +8,8 @@ public class Key : MonoBehaviour
     ControlJuego controljuego;
     public Timer2 tiempo;
     public int key = 0;
-    public int puntaje;
+    public float puntaje;
+    public string tiempoS;
 
     private void Awake()
     {
@@ -23,8 +24,8 @@ public class Key : MonoBehaviour
             menuTiempo.SetActive(true);
 
             tiempo = FindObjectOfType<Timer2>();
-            puntaje = (tiempo.minutos * 6000) + (tiempo.segundos * 100) + (tiempo.centesimas);
-            Debug.Log(puntaje);
+            puntaje = (float)(tiempo.timeElapsed); //(tiempo.minutos * 6000) + (tiempo.segundos * 100) + (tiempo.centesimas);
+            tiempoS = string.Format("{0:00}:{1:00}:{2:00}", tiempo.minutos, tiempo.segundos, tiempo.centesimas);
 
             GetComponent<SpriteRenderer>().enabled = false;
             controljuego.desbloquearNivel();
