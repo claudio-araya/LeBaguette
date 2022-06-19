@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Threading;
 
 public class Key : MonoBehaviour
 {
@@ -11,16 +11,17 @@ public class Key : MonoBehaviour
     public float puntaje;
     public string tiempoS;
 
+    public Animator abrirFormulario;
+
     private void Awake()
     {
-        controljuego = GameObject.Find("ControlJuego").GetComponent(typeof(ControlJuego)) as ControlJuego;
+        controljuego = GameObject.Find("ControlJuego").GetComponent(typeof(ControlJuego)) as ControlJuego;        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Time.timeScale = 0f;
             menuTiempo.SetActive(true);
 
             tiempo = FindObjectOfType<Timer2>();
@@ -30,7 +31,10 @@ public class Key : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             controljuego.desbloquearNivel();
             Destroy(gameObject, 1f);
-
+            
+            abrirFormulario.Play("formularioAbrir");    //Si el time.scale se descomenta, esto no funca XD
+            
+            Time.timeScale = 0f;
         }
     }
 }
