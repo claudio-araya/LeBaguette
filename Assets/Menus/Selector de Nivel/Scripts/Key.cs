@@ -8,6 +8,7 @@ public class Key : MonoBehaviour
     ControlJuego controljuego;
     public Timer2 tiempo;
     public int key = 0;
+    public Database datbase;
     public float puntaje;
     public string tiempoS;
 
@@ -31,6 +32,8 @@ public class Key : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             controljuego.desbloquearNivel();
             Destroy(gameObject, 1f);
+
+            datbase.ReadDataBase();
 
             abrirRanking.Play("rankingAbrir");
             //abrirFormulario.Play("formularioAbrir");    //Si el time.scale se descomenta, esto no funca XD

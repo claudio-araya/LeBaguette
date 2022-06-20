@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Database;
+using System.Linq;
+using UnityEngine.UI;
 
 public class Database : MonoBehaviour
 {
@@ -11,7 +13,10 @@ public class Database : MonoBehaviour
     public string nivel;
     private string input1;
     private string input2;
-    
+    public GameObject scoreElement;
+    public Transform scoreboardContent;
+    public Button boton;
+
 
     // Start is called before the first frame update
     void Start() {
@@ -25,22 +30,19 @@ public class Database : MonoBehaviour
         
     }
 
-    private void writeNewUser(string userId, string name, string time, float score) {
+
+    private void writeNewUser(string name, string time, float score) {
         Niveles user = new Niveles(name,time,score);
         string json = JsonUtility.ToJson(user);
 
-        reference.Child(nivel).Child(userId).SetRawJsonValueAsync(json);
+        string key = reference.Child(nivel).Push().Key;
+        reference.Child(nivel).Child(key).SetRawJsonValueAsync(json);
     }
 
-    public void ReadInputID(string id ){
-
-        input1 = id;
-
-    } 
 
     public void ReadInputUsername(string username ){
 
-        input2 = username;
+        input1 = username;
 
     }    
     
@@ -48,8 +50,46 @@ public class Database : MonoBehaviour
     public void btn(){
 
         
-        writeNewUser(input1, input2, coso.tiempoS, coso.puntaje);
+        writeNewUser(input1, coso.tiempoS, coso.puntaje *-1);
+        ReadDataBase();
+        boton.interactable = false;
     
+    }
+
+    public void ReadDataBase(){
+        StartCoroutine(LoadDataBase());
+    }
+
+    public IEnumerator LoadDataBase(){
+
+        var Dbtask = reference.Child(nivel).OrderByChild("score").LimitToLast(10).GetValueAsync();
+    
+        yield return new WaitUntil(predicate: () => Dbtask.IsCompleted);
+
+        if (Dbtask.Exception != null){
+            Debug.LogWarning(message: $"Failed to register task with {Dbtask.Exception}");
+
+        }else{
+
+            DataSnapshot snapshot = Dbtask.Result;
+    
+            string jsonStr = snapshot.GetRawJsonValue(); 
+
+            foreach(Transform child in scoreboardContent.transform){
+                Destroy(child.gameObject);
+            }
+            
+            foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>()){
+               
+                string username = childSnapshot.Child("username").Value.ToString();
+                string time = childSnapshot.Child("time").Value.ToString();
+
+                GameObject scoreboardElement = Instantiate(scoreElement, scoreboardContent);
+                scoreboardElement.GetComponent<ScoreElement>().NewScoreElement(username, time);
+
+            }     
+        }
+
     }
 
 }
