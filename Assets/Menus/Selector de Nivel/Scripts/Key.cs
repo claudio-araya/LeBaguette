@@ -11,7 +11,8 @@ public class Key : MonoBehaviour
     public float puntaje;
     public string tiempoS;
 
-    public Animator abrirFormulario;
+    //public Animator abrirFormulario;
+    public Animator abrirRanking;
 
     private void Awake()
     {
@@ -23,7 +24,6 @@ public class Key : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             menuTiempo.SetActive(true);
-
             tiempo = FindObjectOfType<Timer2>();
             puntaje = (float)(tiempo.timeElapsed); //(tiempo.minutos * 6000) + (tiempo.segundos * 100) + (tiempo.centesimas);
             tiempoS = string.Format("{0:00}:{1:00}:{2:00}", tiempo.minutos, tiempo.segundos, tiempo.centesimas);
@@ -31,9 +31,10 @@ public class Key : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             controljuego.desbloquearNivel();
             Destroy(gameObject, 1f);
-            
-            abrirFormulario.Play("formularioAbrir");    //Si el time.scale se descomenta, esto no funca XD
-            
+
+            abrirRanking.Play("rankingAbrir");
+            //abrirFormulario.Play("formularioAbrir");    //Si el time.scale se descomenta, esto no funca XD
+            Cursor.visible = true;
             Time.timeScale = 0f;
         }
     }

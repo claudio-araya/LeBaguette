@@ -11,7 +11,12 @@ public class MenuPausa : MonoBehaviour
     public Animator abrirMenuPausa;
     bool comprobar = false;
     bool comprobar2 = false;
-    
+
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -23,6 +28,7 @@ public class MenuPausa : MonoBehaviour
     public void Pausa()
     {
         Time.timeScale = 0f;
+        Cursor.visible = true;
         if (comprobar == false)
         {
             abrirMenuPausa.Play("menuAbrir");
@@ -34,6 +40,7 @@ public class MenuPausa : MonoBehaviour
     
     public void Reanudar()
     {
+        Cursor.visible = false;
         Time.timeScale = 1f;
         if (comprobar2 == true)
         {
