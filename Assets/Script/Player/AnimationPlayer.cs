@@ -21,13 +21,14 @@ public class AnimationPlayer : MonoBehaviour
     
     void Update(){
         
-        anim.SetBool("Correr", MovePlayer.x != 0);
-        anim.SetBool("OnGround", coll.onGround);
-        anim.SetBool("isJumping", MovePlayer.isJumping);
-        anim.SetBool("MirarArriba", MovePlayer.y > 0 && MovePlayer.x == 0);
+        anim.SetBool("Correr", MovePlayer.x != 0); //
+        anim.SetBool("OnGround", coll.onGround);    //
+        anim.SetBool("isJumping", MovePlayer.isJumping); // 
+        anim.SetBool("MirarArriba", MovePlayer.y > 0 && MovePlayer.x == 0); //
         anim.SetBool("Climbing", MovePlayer.climbing);
         anim.SetBool("SlideWall", MovePlayer.slideWall);
         anim.SetBool("ClimbingUp", MovePlayer.y > 0 && MovePlayer.climbing);
-        anim.SetBool("isDashing", MovePlayer.isDashing);
+        anim.SetBool("isDashing", MovePlayer.isDashing); //
+        anim.SetBool("Dead", MovePlayer.Dead); //
     }
 }

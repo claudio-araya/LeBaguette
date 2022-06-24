@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool isDashing;
 	public bool CanDash;
 	public bool slideWall; // Deja deslizarse
+	public bool Dead = false;
 
 	// Variables De Tiempo
 	private float lastGroundedTime; // tiempo desde la ultima vez en el suelo
@@ -82,12 +83,12 @@ public class PlayerMovement : MonoBehaviour
 			MoveInput.y = Input.GetAxisRaw("Vertical");
 			dir = new Vector2(MoveInput.x, MoveInput.y);
 
-			if(Input.GetKey(KeyCode.C)){ // Sigue Ocurriendo Mientras se mantenga presionada la tecla 
+			if(Input.GetButton("Jump")){ // Sigue Ocurriendo Mientras se mantenga presionada la tecla 
 				lastJumpTime = JumpBufferTime;
 				
 			}
 
-			if(Input.GetKeyUp(KeyCode.C)){ // Ocurre una 1 vez, cuando suelta la tecla devuelve true 
+			if(Input.GetButtonUp("Jump")){ // Ocurre una 1 vez, cuando suelta la tecla devuelve true 
 				OnJumpUp();
 			
 			}
@@ -120,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
 			}
 			
 			// Condiciones de agarre
-			if(coll.onWall && Input.GetKey(KeyCode.X) && CanMove){
+			if(coll.onWall && Input.GetButton("Grab") && CanMove){
 				
 				climbing = true;
 				Grab();
@@ -136,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
 
 			}
 			
-			if(Time.time > nexDash && Input.GetKeyDown(KeyCode.Z) && CanDash && CanMove){
+			if(Time.time > nexDash && Input.GetButtonDown("Dash") && CanDash && CanMove){
             	
 				CanDash = false;
                 Dash();
@@ -274,6 +275,16 @@ public class PlayerMovement : MonoBehaviour
 		CanMove = true;
 	}
 
+	private IEnumerator StopMovementDead(float duration)
+	{
+		CanMove = false;
+		Dead = true;
+		yield return new WaitForSeconds(duration);
+		Dead = false;
+		CanMove = true;
+		transform.position = respawnPoint;
+	}
+
 	private IEnumerator StopDash(float duration)
 	{
 		CanMove = false;
@@ -307,8 +318,8 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.layer == 7)
         {
 			rb.velocity = new Vector2(0, 0);
-			StartCoroutine(StopMovement(0.1f));
-            transform.position = respawnPoint;
+			rb.gravityScale = 0;
+			StartCoroutine(StopMovementDead(0.8f));
 			
         }
     	

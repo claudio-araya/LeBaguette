@@ -9651,6 +9651,7 @@ MonoBehaviour:
   isDashing: 0
   CanDash: 1
   slideWall: 0
+  Dead: 0
   x: 0
   y: 0
 --- !u!50 &2085326588
