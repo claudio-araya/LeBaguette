@@ -733,7 +733,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nivel: Nivel 1
-  input1: 
+  scoreElement: {fileID: 0}
+  scoreboardContent: {fileID: 0}
+  boton: {fileID: 0}
 --- !u!4 &1543874731
 Transform:
   m_ObjectHideFlags: 0

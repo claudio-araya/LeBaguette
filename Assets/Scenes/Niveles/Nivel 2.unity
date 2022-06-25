@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 1908178291}
   menuPausa: {fileID: 2077955237}
+  abrirMenuPausa: {fileID: 0}
 --- !u!1 &117718264
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UItexto: {fileID: 482934322}
   total: 0
+  mili: 0
 --- !u!114 &271865727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3831,7 +3833,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4405395e86cea4da4964fbfb9507c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuTiempo: {fileID: 0}
+  tiempo: {fileID: 0}
   key: 0
+  datbase: {fileID: 0}
+  puntaje: 0
+  tiempoS: 
+  abrirRanking: {fileID: 0}
 --- !u!114 &1537752846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4075,6 +4083,7 @@ MonoBehaviour:
   isDashing: 0
   CanDash: 1
   slideWall: 0
+  Dead: 0
   x: 0
   y: 0
 --- !u!50 &1738622853
