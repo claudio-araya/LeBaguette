@@ -5,24 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class CambiarEscena : MonoBehaviour
 {
-    // Update is called once per frame
+    
     void Update()
     {
         
     }
 
     public void BotonJugar(){
-        SceneManager.LoadScene("LevelSelectorTest");
+        LevelLoader.LoadLevel("LevelSelectorTest");
     }
 
     public void BotonOpciones()
     {
-        SceneManager.LoadScene("opcionesScene");
+        SceneManager.LoadScene("opcionesScene", LoadSceneMode.Single);
     }
 
     public void BotonVolverMenu()
     {
-        SceneManager.LoadScene("mainMenu");
+        LevelLoader1.LoadSelector("mainMenu");
     }
 
     public void BotonSalir()

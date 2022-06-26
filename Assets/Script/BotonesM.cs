@@ -9,11 +9,10 @@ public class BotonesM : MonoBehaviour
 
     void Start()
     {
-
+        botones[posicion].seleccionado = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
