@@ -2246,7 +2246,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e49c5b3df42a33e46a6e052097940be0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee6fa1399f80b074eb4b6a631dfade58, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -35494,6 +35494,7 @@ MonoBehaviour:
   Dead: 0
   x: 0
   y: 0
+  laluz: {fileID: 0}
 --- !u!50 &1738622853
 Rigidbody2D:
   serializedVersion: 4
