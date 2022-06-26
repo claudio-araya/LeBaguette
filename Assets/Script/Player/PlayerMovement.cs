@@ -325,7 +325,19 @@ public class PlayerMovement : MonoBehaviour
 			StartCoroutine(StopMovementDead(0.8f));
 			
         }
+		if(collision.gameObject.tag == "Plataforma")
+        {
+            transform.parent = collision.transform;
+        }
     	
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Plataforma")
+        {
+            transform.parent = null;
+        }
     }
 
 	private void OnTriggerEnter2D(Collider2D collision){

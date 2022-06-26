@@ -39,7 +39,6 @@ public class FallingSpikes : MonoBehaviour
     {
         if(collision.gameObject.layer == 6){
             rb.gravityScale = 5;
-            isFalling = false;
             gameObject.layer = 6;
         }
     }
