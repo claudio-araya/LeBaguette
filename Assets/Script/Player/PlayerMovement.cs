@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
 				Grab();
 
 			}else if(coll.onWall && rb.velocity.y < 0  && (x != 0)){
-				slideWall = true;
+				climbing = true;
 				SlideWall();
 
 			}else{
