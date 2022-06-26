@@ -9,6 +9,7 @@ TagManager:
   - Superficie
   - tiempo
   - musica
+  - Plataforma
   layers:
   - Default
   - TransparentFX
