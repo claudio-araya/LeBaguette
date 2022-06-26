@@ -29,7 +29,10 @@ public class ControlJuego : MonoBehaviour
         if (nivel == 0)
             SceneManager.LoadScene("LevelSelectorTest");
         else
-            SceneManager.LoadScene("Nivel " + nivel);
+            LevelLoader1.LoadSelector("Nivel " + nivel);
+            BGmusic.instance.GetComponent<AudioSource>().Pause();
+        //BGmusic.instance.GetComponent<AudioSource>().Play();
+
     }
 
     public void desbloquearNivel()
