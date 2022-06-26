@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -63,12 +64,14 @@ public class PlayerMovement : MonoBehaviour
 	private Vector2 dir;
 	public float x;
     public float y;
+	public Light2D laluz;
 
 	private void Start(){
 
 		rb = GetComponent<Rigidbody2D>();
 		coll = GetComponent<DetecColision>();
 		sr = GetComponent<SpriteRenderer>();
+		laluz = GetComponent<Light2D>();
 		gravityScale = rb.gravityScale;
 		respawnPoint = transform.position;
 
@@ -332,6 +335,11 @@ public class PlayerMovement : MonoBehaviour
             respawnPoint = transform.position;
         }
 
+	}
+
+	public void ControlLuz()
+	{
+		laluz.enabled = true;
 	}
 
 }
