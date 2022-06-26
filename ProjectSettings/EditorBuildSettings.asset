@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PantallaCarga.unity
     guid: a4f39e47b3d13e442823cd061fdc1753
   - enabled: 1
+    path: Assets/Scenes/Niveles/Nivel 3/Nivel 3.unity
+    guid: f009482f65e93604c84afc25f3c45862
+  - enabled: 1
     path: Assets/Scenes/Consejo.unity
     guid: 362091ec6fe2437449723ee40e9e4480
   m_configObjects: {}
