@@ -12,7 +12,7 @@ public class CambiarEscena : MonoBehaviour
     }
 
     public void BotonJugar(){
-        LevelLoader.LoadLevel("LevelSelectorTest");
+        LevelLoader1.LoadSelector("LevelSelectorTest");
     }
 
     public void BotonOpciones()
@@ -22,7 +22,7 @@ public class CambiarEscena : MonoBehaviour
 
     public void BotonVolverMenu()
     {
-        LevelLoader1.LoadSelector("mainMenu");
+        SceneManager.LoadScene("mainMenu", LoadSceneMode.Single);
     }
 
     public void BotonSalir()
