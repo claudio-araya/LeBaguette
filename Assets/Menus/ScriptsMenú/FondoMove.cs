@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FondoMove : MonoBehaviour
 {
+    public int fuerza;
     float mousePosX;
     float mousePosY;
     void Start()
@@ -17,7 +18,7 @@ public class FondoMove : MonoBehaviour
         mousePosY = Input.mousePosition.y;
 
         this.GetComponent<RectTransform>().position = new Vector2(
-            (mousePosX/Screen.width) * 10 + (Screen.width /2),
-            (mousePosY / Screen.height) * 10 + (Screen.height / 2));
+            (mousePosX/Screen.width) * fuerza + (Screen.width /2),
+            (mousePosY / Screen.height) * fuerza + (Screen.height / 2));
     }
 }
