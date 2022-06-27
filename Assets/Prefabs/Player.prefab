@@ -142,7 +142,11 @@ MonoBehaviour:
   MaxMoveSpeed: 9
   Acceleration: 5
   Decceleration: 7
-  VelPower: 1
+  AccelInAir: 1
+  DeccelInAir: 0
+  AccelPower: 1
+  StopPower: 1
+  TurnPower: 1
   JumpForce: 12
   JumpCoyoteTime: 0.15
   JumpCutMultiplier: 0.4
@@ -165,6 +169,7 @@ MonoBehaviour:
   CanDash: 1
   slideWall: 0
   Dead: 0
+  impuls: 0
   x: 0
   y: 0
   laluz: {fileID: 0}
