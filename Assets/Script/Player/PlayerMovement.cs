@@ -14,8 +14,13 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float MaxMoveSpeed; // Velocidad de Movimiento 
 	[SerializeField] private float Acceleration; // Aceleracion
 	[SerializeField] private float Decceleration; // Desaceleracion
-	[SerializeField] private float VelPower; // Poder de Velocidad 
-	
+	//[SerializeField] private float VelPower; // Poder de Velocidad 
+	[Range(0,1)] public float AccelInAir;  
+	[Range(0,1)] public float DeccelInAir; 
+	[Range(.5f, 2f)] public float AccelPower;   
+	[Range(.5f, 2f)] public float StopPower;
+	[Range(.5f, 2f)] public float TurnPower;
+
 	[Header("JUMP - SALTO")]
 	[SerializeField] private float JumpForce; // Fuerza del salto
 	[SerializeField] private float JumpCoyoteTime; // Valor del Coyote 
@@ -52,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 	public bool CanDash;
 	public bool slideWall; // Deja deslizarse
 	public bool Dead = false;
+	public bool impuls = false;
 
 	// Variables De Tiempo
 	private float lastGroundedTime; // tiempo desde la ultima vez en el suelo
@@ -80,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
 	private void Update(){
 
 		#region INPUTS
+			
 			x = Input.GetAxis("Horizontal");
         	y = Input.GetAxis("Vertical");
 			MoveInput.x = Input.GetAxisRaw("Horizontal");
@@ -115,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
 				lastGroundedTime = JumpCoyoteTime;
 				CanDash = true;
+				
 			}
 
 			if(rb.velocity.y <= 0){
@@ -185,14 +193,53 @@ public class PlayerMovement : MonoBehaviour
 	private void FixedUpdate(){
 		
 		#region RUN - MOVIMIENTO   
+			
+
 			if(CanMove){
 
+				// float targetSpeed = MoveInput.x * MaxMoveSpeed; // calcula la direccion en la que queremos movernos y nuestra velocidad deseada
+				// float speedDif = targetSpeed - rb.velocity.x; //calcula la diferencia entre la velocidad actual y la velocidad deseada	
+				// float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Acceleration : Decceleration; // cambiar la tasa de aceleracion dependiendo de la situacion
+				// float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, VelPower) * Mathf.Sign(speedDif); //aplica aceleracion a la diferencia de velocidad, la eleva a una potencia establecida para que la aceleracion aumente con velocidades mas altas, finalmente se multiplica por signo para volver a aplicar la direccion
+				// rb.AddForce(movement * Vector2.right); // aplica fuerza fuerza a rigidbody, multiplicando por Vector2.right para que solo afecte el eje X
+
 				float targetSpeed = MoveInput.x * MaxMoveSpeed; // calcula la direccion en la que queremos movernos y nuestra velocidad deseada
-				float speedDif = targetSpeed - rb.velocity.x; //calcula la diferencia entre la velocidad actual y la velocidad deseada
-				float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Acceleration : Decceleration; // cambiar la tasa de aceleracion dependiendo de la situacion
-				float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, VelPower) * Mathf.Sign(speedDif); //aplica aceleracion a la diferencia de velocidad, la eleva a una potencia establecida para que la aceleracion aumente con velocidades mas altas, finalmente se multiplica por signo para volver a aplicar la direccion
-				rb.AddForce(movement * Vector2.right); // aplica fuerza fuerza a rigidbody, multiplicando por Vector2.right para que solo afecte el eje X
+				float speedDif = targetSpeed - rb.velocity.x; //calcula la diferencia entre la velocidad actual y la velocidad deseada	
+				float accelRate;
+				
+				if (lastGroundedTime > 0){
+					accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Acceleration : Decceleration;
+
+				}else{
+					accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Acceleration * AccelInAir : Decceleration * DeccelInAir;
+				}
+
+				if (((rb.velocity.x > targetSpeed && targetSpeed > 0.01f) || (rb.velocity.x < targetSpeed && targetSpeed < -0.01f)))
+				{
+					accelRate = 0; 
+				}
+
+				float velPower;
+				if (Mathf.Abs(targetSpeed) < 0.01f){
+					velPower = StopPower;
+				
+				}else if (Mathf.Abs(rb.velocity.x) > 0 && (Mathf.Sign(targetSpeed) != Mathf.Sign(rb.velocity.x))){
+					velPower = TurnPower;
+
+				}
+				else{
+					velPower = AccelPower;
+				
+				}
+			
+				float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, velPower) * Mathf.Sign(speedDif);
+				movement = Mathf.Lerp(rb.velocity.x, movement, 1); // lerp so that we can prevent the Run from immediately slowing the player down, in some situations eg wall jump, dash 
+
+				rb.AddForce(movement * Vector2.right);
+
 			}
+
+
 		#endregion
 
 		#region Jump Gravity
@@ -320,10 +367,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.gameObject.layer == 7)
         {
+			transform.parent = null;
 			rb.velocity = new Vector2(0, 0);
 			rb.gravityScale = 0;
-			transform.parent = null;
 			StartCoroutine(StopMovementDead(0.8f));
+			
 			
         }
 		if(collision.gameObject.tag == "Plataforma")
@@ -348,6 +396,11 @@ public class PlayerMovement : MonoBehaviour
             respawnPoint = transform.position;
         }
 
+	}
+
+	public void inpulse222()
+	{
+		impuls = true;
 	}
 
 	public void ControlLuz()
