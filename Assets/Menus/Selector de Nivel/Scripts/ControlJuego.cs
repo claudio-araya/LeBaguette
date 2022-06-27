@@ -29,9 +29,8 @@ public class ControlJuego : MonoBehaviour
         if (nivel == 0)
             SceneManager.LoadScene("LevelSelectorTest");
         else
-            LevelLoader1.LoadSelector("Nivel " + nivel);
+            LevelLoader.LoadLevel("Nivel " + nivel);
             BGmusic.instance.GetComponent<AudioSource>().Pause();
-        //BGmusic.instance.GetComponent<AudioSource>().Play();
 
     }
 
@@ -47,7 +46,11 @@ public class ControlJuego : MonoBehaviour
 
     public void actualizarBotones()
     {
-        for (int i = 0; i < nivelesDesbloqueados+1; i++ )
+        for (int i = 0; i < nivelesDesbloqueados + 1; i++)
+        {
+            botonesMenu[i].GetComponent<Image>().color = new Color(255, 255, 255);
             botonesMenu[i].interactable = true;
+        }    
+            
     }
 }

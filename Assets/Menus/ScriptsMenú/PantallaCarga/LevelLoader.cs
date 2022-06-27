@@ -9,7 +9,7 @@ public static class LevelLoader
     public static void LoadLevel(string name)
     {
         nextLevel = name;
-
-        SceneManager.LoadScene("Consejo");
+        int index = Random.Range(1, 6);
+        SceneManager.LoadScene("Consejo " + index);
     }
 }

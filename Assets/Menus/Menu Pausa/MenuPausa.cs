@@ -56,19 +56,21 @@ public class MenuPausa : MonoBehaviour
 
     public void Reiniciar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LevelLoader.LoadLevel(SceneManager.GetActiveScene().name);
         Reanudar();
     }
 
     public void Volver()
     {
-        SceneManager.LoadScene("LevelSelectorTest");
+        LevelLoader.LoadLevel("LevelSelectorTest");
         Time.timeScale = 1f;
+        BGmusic.instance.GetComponent<AudioSource>().Play();
     }
 
     public void BackMenu()
     {
-        SceneManager.LoadScene("mainMenu");
+        LevelLoader.LoadLevel("mainMenu");
         Time.timeScale = 1f;
+        BGmusic.instance.GetComponent<AudioSource>().Play();
     }
 }
