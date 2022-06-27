@@ -23,6 +23,10 @@ public class MenuPausa : MonoBehaviour
         {
             Pausa();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reiniciar();
+        }
     }
 
     public void Pausa()
