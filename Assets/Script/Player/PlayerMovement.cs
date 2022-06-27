@@ -322,6 +322,7 @@ public class PlayerMovement : MonoBehaviour
         {
 			rb.velocity = new Vector2(0, 0);
 			rb.gravityScale = 0;
+			transform.parent = null;
 			StartCoroutine(StopMovementDead(0.8f));
 			
         }
