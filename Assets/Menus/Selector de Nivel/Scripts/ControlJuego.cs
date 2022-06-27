@@ -50,5 +50,4 @@ public class ControlJuego : MonoBehaviour
         for (int i = 0; i < nivelesDesbloqueados+1; i++ )
             botonesMenu[i].interactable = true;
     }
-    
 }
