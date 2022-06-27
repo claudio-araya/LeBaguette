@@ -325,7 +325,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Correr
-  m_Speed: 1
+  m_Speed: 1.2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1702115922778647828}
@@ -800,7 +800,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 14d38ea40f999fc4ab35455c057e17bf, type: 2}
+  m_Motion: {fileID: 7400000, guid: 28987e00a9415344d9ffd5db7c70c4f3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
