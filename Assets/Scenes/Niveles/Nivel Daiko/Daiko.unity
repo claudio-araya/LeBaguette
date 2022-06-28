@@ -22371,7 +22371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2058489146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22777,6 +22777,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4161909689298817085, guid: 3a5d2ea7d792c18418592b00a1213142, type: 3}
+      propertyPath: TimeDash
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161909689298817085, guid: 3a5d2ea7d792c18418592b00a1213142, type: 3}
       propertyPath: StopPower
       value: 1
       objectReference: {fileID: 0}
@@ -22795,6 +22799,10 @@ PrefabInstance:
     - target: {fileID: 4161909689298817085, guid: 3a5d2ea7d792c18418592b00a1213142, type: 3}
       propertyPath: DeccelInAir
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161909689298817085, guid: 3a5d2ea7d792c18418592b00a1213142, type: 3}
+      propertyPath: WallJumpForce.y
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a5d2ea7d792c18418592b00a1213142, type: 3}

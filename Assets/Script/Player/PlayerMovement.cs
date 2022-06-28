@@ -85,6 +85,13 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update(){
 
+		#region TIMERS
+
+			lastGroundedTime -= Time.deltaTime;
+			lastJumpTime -= Time.deltaTime;
+			
+		#endregion
+
 		#region INPUTS
 			
 			x = Input.GetAxis("Horizontal");
@@ -122,6 +129,9 @@ public class PlayerMovement : MonoBehaviour
 
 				lastGroundedTime = JumpCoyoteTime;
 				CanDash = true;
+				if(isDashing){
+					CanDash = false;
+				}
 				
 			}
 
@@ -181,12 +191,6 @@ public class PlayerMovement : MonoBehaviour
 
 		#endregion
 
-		#region TIMERS
-
-			lastGroundedTime -= Time.deltaTime;
-			lastJumpTime -= Time.deltaTime;
-			
-		#endregion
 
 	}
 
