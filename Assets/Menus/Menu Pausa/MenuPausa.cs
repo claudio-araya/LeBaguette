@@ -19,11 +19,11 @@ public class MenuPausa : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
             Pausa();
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetButtonDown("Restart"))
         {
             Reiniciar();
         }
