@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &34236958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34236957}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2016069957, guid: 206b1711566a36942b11ed96fc6cb5da, type: 3}
+  m_Sprite: {fileID: 1616612245, guid: bcbe8d6b8ccae9c4589762ac3e34c8d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1814869347, guid: 206b1711566a36942b11ed96fc6cb5da, type: 3}
+  m_Sprite: {fileID: -1591415658, guid: 206b1711566a36942b11ed96fc6cb5da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1058,7 +1058,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CASTILLO
+  m_Text: ESPACIO
 --- !u!222 &872048332
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1420,7 +1420,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NIEVE
+  m_Text: CUEVA
 --- !u!222 &989298273
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1500,7 +1500,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NIVEL 6
+  m_Text: Proximanete
 --- !u!222 &1076263703
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1626,7 +1626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1591415658, guid: 206b1711566a36942b11ed96fc6cb5da, type: 3}
+  m_Sprite: {fileID: 2016069957, guid: 206b1711566a36942b11ed96fc6cb5da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1701,7 +1701,6 @@ MonoBehaviour:
   - {fileID: 429918028}
   - {fileID: 1660004395}
   - {fileID: 1089948442}
-  - {fileID: 34236959}
 --- !u!4 &1295244584
 Transform:
   m_ObjectHideFlags: 0
@@ -2399,7 +2398,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ESPACIO
+  m_Text: CIELO
 --- !u!222 &1505797217
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2808,7 +2807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1616612245, guid: bcbe8d6b8ccae9c4589762ac3e34c8d7, type: 3}
+  m_Sprite: {fileID: -1814869347, guid: 206b1711566a36942b11ed96fc6cb5da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3051,7 +3050,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CUEVA
+  m_Text: CASTILLO
 --- !u!222 &1677017002
 CanvasRenderer:
   m_ObjectHideFlags: 0

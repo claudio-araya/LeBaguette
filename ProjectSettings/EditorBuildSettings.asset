@@ -22,9 +22,15 @@ EditorBuildSettings:
     guid: 45e74007b52e6f14ca3827c949501d11
   - enabled: 1
     path: Assets/Scenes/Niveles/Nivel 2/Nivel 2.unity
-    guid: a370235de805d654ab746506d5a69d81
+    guid: 8a7e813104e5c06429046ae31345093e
   - enabled: 1
     path: Assets/Scenes/Niveles/Nivel 3/Nivel 3.unity
+    guid: 368366a8591b7594aa78647e65b777b2
+  - enabled: 1
+    path: Assets/Scenes/Niveles/Nivel 4/Nivel 4.unity
+    guid: a370235de805d654ab746506d5a69d81
+  - enabled: 1
+    path: Assets/Scenes/Niveles/Nivel 5/Nivel 5.unity
     guid: f009482f65e93604c84afc25f3c45862
   - enabled: 1
     path: Assets/Scenes/PantallasCarga/Consejo 0.unity

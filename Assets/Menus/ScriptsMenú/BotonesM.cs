@@ -6,18 +6,21 @@ public class BotonesM : MonoBehaviour
 {
     public Boton[] botones;
     public int posicion = 0;
-
+ 
     void Start()
     {
         botones[posicion].seleccionado = true;
+
+
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetAxis("Horizontal") == -1f || Input.GetKeyDown(KeyCode.RightArrow))
         {
-
+            StartCoroutine(Example());
             botones[posicion].seleccionado = false;
             posicion++;
 
@@ -35,11 +38,12 @@ public class BotonesM : MonoBehaviour
             }
 
             botones[posicion].seleccionado = true;
+
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
 
+        if (Input.GetAxis("Horizontal") == 1f || Input.GetKeyDown(KeyCode.LeftArrow))
+        {
             botones[posicion].seleccionado = false;
             posicion--;
 
@@ -57,6 +61,11 @@ public class BotonesM : MonoBehaviour
             }
 
             botones[posicion].seleccionado = true;
+        }
+
+        IEnumerator Example()
+        {
+            yield return new WaitForSeconds(1);
         }
     }
 }

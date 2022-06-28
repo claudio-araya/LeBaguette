@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class Boton : MonoBehaviour
 {
     public string escena;
     public Color[] colores;
     public bool seleccionado = false;
-    public Animator animacion1,animacion2,animacion3;
     public Image boton;
-    
-    void Start(){ 
-    
+    private MenuPausa menu;
+
+    void Start(){
+
+        menu = FindObjectOfType<MenuPausa>();
         boton.color = colores[0]; 
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (seleccionado)
         {
@@ -30,10 +30,17 @@ public class Boton : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && seleccionado)
+        if (Input.GetButton("Jump") && seleccionado && escena == "Resume")
+        {
+            menu.Reanudar();
+        } else if (Input.GetButton("Jump") && seleccionado && escena == "Reiniciar")
+        {
+            menu.Reiniciar();
+        } else if (Input.GetButton("Jump") && seleccionado)
         {
             SceneManager.LoadScene(escena, LoadSceneMode.Single);
         }
+
 
     }
 }

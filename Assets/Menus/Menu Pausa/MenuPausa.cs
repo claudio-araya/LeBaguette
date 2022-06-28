@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuPausa : MonoBehaviour
 {
     [SerializeField] private GameObject botonPausa;
-    [SerializeField] private GameObject menuPausa;
+    [SerializeField] public GameObject menuPausa;
+    [SerializeField] public GameObject player;
 
     public Animator abrirMenuPausa;
     bool comprobar;
@@ -30,15 +31,16 @@ public class MenuPausa : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Restart"))
-        {
-            Reiniciar();
-        }
+        //if (Input.GetButtonDown("Restart"))
+        //{
+        //    Reiniciar();
+        //}
     }
 
     public void Pausa()
     {
-        Time.timeScale = 0f;
+        menuPausa.SetActive(true);
+        player.SetActive(false);
         Cursor.visible = true;
         comprobar = false;
         abrirMenuPausa.Play("menuAbrir");
@@ -48,12 +50,13 @@ public class MenuPausa : MonoBehaviour
     
     public void Reanudar()
     {
-        Time.timeScale = 1f;
+        player.SetActive(true);
         Cursor.visible = false;
         comprobar = true;
         abrirMenuPausa.Play("menuCerrar");
         Debug.Log("reanudar");
-     
+        menuPausa.SetActive(false);
+
     }
 
     public void Reiniciar()
