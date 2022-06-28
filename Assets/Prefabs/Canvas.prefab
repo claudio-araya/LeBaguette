@@ -3606,8 +3606,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botonPausa: {fileID: 6104285457028324045}
-  menuPausa: {fileID: 0}
-  abrirMenuPausa: {fileID: 0}
+  menuPausa: {fileID: 8298955327554363512}
+  abrirMenuPausa: {fileID: 2122781252868545933}
 --- !u!1 &6104285458930027633
 GameObject:
   m_ObjectHideFlags: 0

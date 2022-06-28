@@ -9,8 +9,8 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject menuPausa;
 
     public Animator abrirMenuPausa;
-    bool comprobar = false;
-    bool comprobar2 = false;
+    bool comprobar = true;
+    bool comprobar2;
 
     private void Start()
     {
@@ -21,8 +21,17 @@ public class MenuPausa : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            Pausa();
+            if (comprobar == true){
+                Pausa();
+                
+        
+            }else{
+                Reanudar();
+                
+
+            }
         }
+
         if (Input.GetButtonDown("Restart"))
         {
             Reiniciar();
@@ -33,24 +42,22 @@ public class MenuPausa : MonoBehaviour
     {
         Time.timeScale = 0f;
         Cursor.visible = true;
-        if (comprobar == false)
-        {
-            abrirMenuPausa.Play("menuAbrir");
-            comprobar = true;
-        }
+        abrirMenuPausa.Play("menuAbrir");
+        comprobar = false;
+    
         //botonPausa.SetActive(false);
-        comprobar2 = true;
+        //comprobar2 = true;
     }
     
     public void Reanudar()
     {
         Cursor.visible = false;
         Time.timeScale = 1f;
-        if (comprobar2 == true)
-        {
-            //abrirMenuPausa.Play("menuCerrar");
-            comprobar = false;
-        }
+     
+        abrirMenuPausa.Play("menuCerrar");
+        comprobar = true;
+    
+    
         //botonPausa.SetActive(true);
     }
 
