@@ -10,6 +10,7 @@ TagManager:
   - tiempo
   - musica
   - Plataforma
+  - Jet
   layers:
   - Default
   - TransparentFX
