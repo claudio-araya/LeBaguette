@@ -11266,8 +11266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334177c865fb0704ea361abc32b62744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnergJet: 1000
-  FuerzaY: 50
+  FuerzaY: 1.6
 --- !u!1 &1368422660
 GameObject:
   m_ObjectHideFlags: 0
@@ -12663,7 +12662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1812696933
 Transform:
   m_ObjectHideFlags: 0

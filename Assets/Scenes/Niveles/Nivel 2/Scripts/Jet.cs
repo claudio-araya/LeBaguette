@@ -14,9 +14,9 @@ public class Jet : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetButton("Jet"))
-        {
-            body.AddForce(new Vector2 (0, FuerzaY));
+        if (Input.GetButton("Jet")){
+            body.AddForce(FuerzaY * Vector2.up, ForceMode2D.Impulse);
+        
         }
     }
 }
